@@ -316,7 +316,7 @@
     </button>
   </div>
 
-  <div class="page-section" id="resources" *ngIf="visibility === VISIBILITY.Off">
+  <div class="page-section" id="resources" *appIfNot="visibility === VISIBILITY.On">
     <!-- Resources -->
     <h2>Content to show when visibility is off</h2>
   </div>

@@ -299,9 +299,9 @@
 
 <div class="content" role="main">
   <div class="gallery-actions">
-    <button class="btn btn-primary" (click)="addNewPicture()">Add Picture</button>
-    <button class="btn btn-danger" (click)="removeFirstPicture()">Remove First</button>
+    <button class="btn btn-primary" (click)="addNewPicture(gallery)">Add Picture</button>
+    <button class="btn btn-danger" (click)="removeFirstPicture(gallery)">Remove First</button>
   </div>
-  <app-gallery></app-gallery>
+  <app-gallery #gallery></app-gallery>
 </div>
 

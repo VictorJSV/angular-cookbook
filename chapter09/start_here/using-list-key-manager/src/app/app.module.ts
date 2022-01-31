@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { TheAmazingListComponent } from './components/the-amazing-list/the-amazing-list.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { TheAmazingListItemComponent } from './components/the-amazing-list-item/the-amazing-list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TheAmazingListComponent,
-    LoaderComponent
+    LoaderComponent,
+    TheAmazingListItemComponent
   ],
   imports: [
     BrowserModule,

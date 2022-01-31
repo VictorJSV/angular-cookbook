@@ -30,8 +30,10 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     )
     .subscribe(params => {
       const uuid = params.get('uuid');
-      this.user$ = this.store.select(selectCurrentUser(uuid))
-      this.similarUsers$ = this.store.select(selectSimilarUsers(uuid))
+      //this.user$ = this.store.select(selectCurrentUser(uuid))
+      this.user$ = this.store.select(selectCurrentUser);
+      //this.similarUsers$ = this.store.select(selectSimilarUsers(uuid))
+      this.similarUsers$ = this.store.select(selectSimilarUsers);
     })
   }
 

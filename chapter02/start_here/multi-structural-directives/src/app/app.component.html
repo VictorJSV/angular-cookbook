@@ -339,18 +339,25 @@
   <div class="page-section">
     <h2>Bucket <i class="material-icons">shopping_cart</i></h2>
     <div class="fruits">
-      <div class="fruits__item" *ngFor="let item of bucket">
-        <div class="fruits__item__title">{{ item.name }}</div>
-        <div
-          class="fruites__item__delete-icon"
-          (click)="deleteFromBucket(item)"
-        >
-          <div class="material-icons">delete</div>
+      <ng-container *ngIf="bucket.length > 0; else bucketEmptyMessage">
+        <div class="fruits__item" *ngFor="let item of bucket">
+          <div class="fruits__item__title">{{ item.name }}</div>
+          <div
+            class="fruites__item__delete-icon"
+            (click)="deleteFromBucket(item)"
+          >
+            <div class="material-icons">delete</div>
+          </div>
         </div>
-      </div>
-      <div class="fruits__no-items-msg" *ngIf="!bucket.length">
+      </ng-container>
+      <!-- <div class="fruits__no-items-msg" *ngIf="!bucket.length">
         No items in bucket. Add some fruits!
-      </div>
+      </div> -->
+      <ng-template #bucketEmptyMessage>
+        <div class="fruits__no-items-msg">
+          No items in bucket. Add some fruits!
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>

@@ -21,7 +21,7 @@
     <ng-container *ngIf="bucket.length > 0; else bucketEmptyMessage">
       <div class="fruits__item" *ngFor="let item of bucket;">
         <div class="fruits__item__title">{{item.name}}</div>
-        <div class="fruites__item__delete-icon" (click)="deleteFromBucket(item)">
+        <div *ngIf="canDeleteItems" class="fruites__item__delete-icon" (click)="deleteFromBucket(item)">
           <div class="material-icons">delete</div>
         </div>
       </div>

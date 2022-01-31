@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IfNotDirective } from './directives/if-not.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IfNotDirective
   ],
   imports: [
     BrowserModule,

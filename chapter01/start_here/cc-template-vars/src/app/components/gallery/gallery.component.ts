@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
   pictures: string[] = [];
+  demo: string = 'pp';
   constructor() { }
 
   ngOnInit(): void {

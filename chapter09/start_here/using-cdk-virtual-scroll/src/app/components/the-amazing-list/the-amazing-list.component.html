@@ -1,6 +1,6 @@
 <h4 class="heading">Our trusted customers</h4>
-<div class="list list-group">
-  <div class="list__item list-group-item" *ngFor="let item of listItems">
+<cdk-virtual-scroll-viewport [itemSize]="110" class="list list-group">
+  <div class="list__item list-group-item" *cdkVirtualFor="let item of listItems">
     <div class="list__item__primary">
       <div class="list__item__primary__info">
         {{item.name}}
@@ -18,4 +18,4 @@
       </div>
     </div>
   </div>
-</div>
+</cdk-virtual-scroll-viewport>

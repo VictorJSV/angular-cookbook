@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReadTimeDirective } from './directives/read-time.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ReadTimeDirective
   ],
   imports: [
     BrowserModule,

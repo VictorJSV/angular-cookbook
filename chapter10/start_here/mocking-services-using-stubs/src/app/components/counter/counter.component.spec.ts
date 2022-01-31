@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CounterService } from 'src/app/core/services/counter.service';
-
 import { CounterComponent } from './counter.component';
+
+import CounterServiceMock from 'src/__mocks__/services/counter.service.mock';
 
 describe('CounterComponent', () => {
   let component: CounterComponent;
@@ -10,15 +11,44 @@ describe('CounterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CounterComponent],
-      providers: [CounterService],
+      providers: [
+        {
+          provide: CounterService,
+          useValue: CounterServiceMock,
+        },
+      ],
     }).compileComponents();
   });
-
   beforeEach(() => {
     fixture = TestBed.createComponent(CounterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+  it('should call the CounterService.getFromStorage method on component init', () => {
+    component.ngOnInit();
+    expect(CounterServiceMock.getFromStorage).toBeCalled();
+  });
+  it('should retrieve the last saved value from CounterService on component init', () => {
+    CounterServiceMock.getFromStorage.mockReturnValue(12);
+    component.ngOnInit();
+    expect(component.counter).toBe(12);
+  });
+  it('should save the new counterValue via CounterService on increment, decrement and reset', () => {
+    component.counter = 0;
+    component.increment();
+    expect(CounterServiceMock.saveToStorage).toHaveBeenCalledWith(1);
+    component.counter = 20;
+    component.decrement();
+    expect(CounterServiceMock.saveToStorage).toHaveBeenCalledWith(19);
+    component.reset();
+    expect(CounterServiceMock.saveToStorage).toHaveBeenCalledWith(0);
+  });
+
+
+
+
+
 
   it('should increment the counter value upon tapping increment button', () => {
     component.counter = 0;

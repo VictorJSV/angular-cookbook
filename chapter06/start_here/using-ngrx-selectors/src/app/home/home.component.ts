@@ -4,6 +4,7 @@ import { IUser } from '../core/interfaces/user.interface';
 import { AppState } from '../store/app.reducer';
 import { Store } from '@ngrx/store';
 import { getUsers } from '../store/app.actions';
+import { selectUsers } from '../store/app.selectors';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<AppState>
   ) {}
-
   ngOnInit() {
+    this.users$ = this.store.select(selectUsers);
     this.store.dispatch(getUsers())
   }
-
-
   ngOnDestroy() {}
 }

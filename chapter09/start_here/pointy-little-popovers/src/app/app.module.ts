@@ -9,22 +9,27 @@ import { TheAmazingListComponent } from './components/the-amazing-list/the-amazi
 import { LoaderComponent } from './components/loader/loader.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { TheAmazingListItemComponent } from './components/the-amazing-list-item/the-amazing-list-item.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { PopoverPositionalClassDirective }
+from './directives/popover-positional-class.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     TheAmazingListComponent,
     LoaderComponent,
-    TheAmazingListItemComponent
+    TheAmazingListItemComponent,
+    PopoverPositionalClassDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ScrollingModule
+    ScrollingModule,
+    OverlayModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,4 @@
-<div class="home" [formGroup]="boxForm" (ngSubmit)="applyChanges()">
+<div class="home" [formGroup]="boxForm"><!-- (ngSubmit)="applyChanges()" -->
   <div class="row">
     <div class="col">
       <label for="bgColorSelect">Background Color</label>
@@ -37,11 +37,11 @@
       </select>
     </div>
   </div>
-  <div class="row submit-btn-container">
+  <!-- <div class="row submit-btn-container">
     <button class="btn btn-primary" type="submit" (click)="applyChanges()">Change Styles</button>
-  </div>
-  <div class="row" *ngIf="boxStyles">
-    <div class="box" [ngStyle]="boxStyles">
+  </div> -->
+  <div class="row" *ngIf="boxStyles$ | async as bStyles">
+    <div class="box" [ngStyle]="bStyles">
       <div class="box__text">
         Hello World!
       </div>
